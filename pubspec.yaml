@@ -1,0 +1,40 @@
+name: tessa_vora
+description: "TESSA VORA - AI-Powered Multilingual Learning Companion for Early Childhood"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Converts the child's spoken voice into text (used in Talk to Tessa)
+  speech_to_text: ^7.0.0
+
+  # Converts Tessa's text responses into spoken voice
+  flutter_tts: ^4.2.0
+
+  # Stores child profile and learning progress locally on the device
+  shared_preferences: ^2.5.3
+
+  # Requests and checks microphone permission before speech recognition starts.
+  # speech_to_text needs RECORD_AUDIO permission granted at runtime on Android;
+  # permission_handler gives us a clean, explicit way to ask for it and to show
+  # a friendly message if the user denies it, instead of the feature silently failing.
+  permission_handler: ^11.3.1
+
+  cupertino_icons: ^1.0.8
+  firebase_core: ^4.15.0
+  cloud_firestore: ^6.10.0
+  sqflite: 2.4.2
+  path: ^1.9.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

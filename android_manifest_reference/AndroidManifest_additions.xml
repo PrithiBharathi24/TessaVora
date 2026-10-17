@@ -1,0 +1,43 @@
+<!--
+  ANDROID PERMISSIONS FOR TESSA VORA
+  ===================================
+  After you run `flutter create tessa_vora`, open:
+
+      android/app/src/main/AndroidManifest.xml
+
+  Add the two <uses-permission> lines and the <queries> block below,
+  INSIDE the <manifest> tag but ABOVE the <application> tag.
+
+  Your file will look like this once edited:
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Needed by speech_to_text to record the child's voice -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Needed if the device uses online speech recognition -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+      Required on Android 11 (API 30) and above so the app is allowed to
+      even SEE that a speech recognition service exists on the device.
+      Without this block, speech_to_text.initialize() can silently return
+      false on newer phones.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+        </intent>
+    </queries>
+
+    <application
+        android:label="tessa_vora"
+        android:icon="@mipmap/ic_launcher">
+        <!-- ... your existing <activity> and other tags stay exactly as they are ... -->
+    </application>
+
+</manifest>
